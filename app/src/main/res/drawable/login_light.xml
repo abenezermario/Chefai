@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- drawable/login_light.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="412dp"
+    android:height="926dp"
+    android:viewportWidth="412"
+    android:viewportHeight="926">
+
+    <group>
+
+        <clip-path android:pathData="M0 0H412V926H0V0Z" />
+
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M0 0V926H412V0" />
+
+    </group>
+
+</vector>
+

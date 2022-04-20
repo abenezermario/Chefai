@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -40,4 +42,15 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    // Gson convertor
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // ok http
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
+    // ok interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+
 }
