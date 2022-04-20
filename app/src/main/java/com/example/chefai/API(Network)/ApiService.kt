@@ -9,7 +9,7 @@ interface ApiService {
 
 
   @Headers("Accept:application/json","Content-Type: application/json",
-    "Authorization: Bearer sk-lQRkAbLB3rd07tUCzdaMLG0RLJKtiK4eamZo8BbP"
+    "Authorization: Bearer API_KEY"
     )
   @POST(Constants.ENDPOINT)
   fun postData(@Body postData: PostData): Call<PostResponseData>
