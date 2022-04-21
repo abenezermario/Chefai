@@ -5,14 +5,12 @@ import retrofit2.http.Body
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
-interface ApiService {
-
+interface ChefApi {
 
   @Headers("Accept:application/json","Content-Type: application/json",
-    "Authorization: Bearer API_KEY"
+    "Authorization: Bearer "+ BuildConfig.OPENAI_KEY
     )
   @POST(Constants.ENDPOINT)
   fun postData(@Body postData: PostData): Call<PostResponseData>
-
 
 }

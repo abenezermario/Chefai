@@ -6,21 +6,20 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.chefai.model.MainActivityViewModal
 
 
-class MainActivity : AppCompatActivity() {
-    lateinit var viewModel: MainActivityViewModel
+class HomeActivity : AppCompatActivity() {
+    lateinit var viewModel: MainActivityViewModal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViewModel()
 
-
         generate.setOnClickListener {
             createPost()
         }
-
     }
 
     private fun createPost() {
@@ -30,16 +29,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainActivityViewModal::class.java)
         viewModel.getPostLiveObserver().observe(this, Observer<PostResponseData?> {
             if (it == null) {
-                Toast.makeText(this@MainActivity, "Failed to fetch", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@HomeActivity, "Failed to fetch", Toast.LENGTH_LONG).show()
             } else {
                 var text = it!!.choices[0].text
                 generated.text = text
 
 
-                Toast.makeText(this@MainActivity, "Succesfully sent post", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@HomeActivity, "Succesfully sent post", Toast.LENGTH_LONG).show()
             }
         })
 

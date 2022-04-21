@@ -1,14 +1,17 @@
-package com.example.chefai
+package com.example.chefai.model
 
 import android.util.Log
-import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.chefai.ChefApi
+import com.example.chefai.PostData
+import com.example.chefai.PostResponseData
+import com.example.chefai.network.RetrofitApiFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivityViewModel : ViewModel() {
+class MainActivityViewModal : ViewModel() {
 
     lateinit var createPostLiveData: MutableLiveData<PostResponseData?>
     init {
@@ -19,9 +22,8 @@ class MainActivityViewModel : ViewModel() {
         return createPostLiveData
     }
 
-
     fun createPostData(postdata: PostData) {
-        val retroService = RetrofitInstance.retroInstance().create(ApiService::class.java)
+        val retroService = RetrofitApiFactory.retroInstance().create(ChefApi::class.java)
 
         val call = retroService.postData(postdata)
 

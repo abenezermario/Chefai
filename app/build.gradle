@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.google.secrets_gradle_plugin' version '0.6.1'
 }
 
 android {
@@ -43,6 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+     'com.google:plugin:0.61'
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     // Gson convertor
