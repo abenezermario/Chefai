@@ -1,4 +1,4 @@
-package com.example.chefai.model
+package com.example.chefai.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -11,13 +11,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivityViewModal : ViewModel() {
+class HomeActivityViewModel : ViewModel() {
 
     lateinit var createPostLiveData: MutableLiveData<PostResponseData?>
+
     init {
         createPostLiveData = MutableLiveData()
     }
-
     fun getPostLiveObserver(): MutableLiveData<PostResponseData?> {
         return createPostLiveData
     }
@@ -35,8 +35,7 @@ class MainActivityViewModal : ViewModel() {
                 if (response.isSuccessful) {
                     createPostLiveData.postValue(response.body())
                     var text = response.body()!!.choices[0].text
-                    Log.d("response", "OK")
-                    text.lines().forEach { println(it)}
+                    Log.d("response", text)
 
 
                 } else {

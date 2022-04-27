@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "50649618659",
+    "project_id": "chefai-bdd82",
+    "storage_bucket": "chefai-bdd82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50649618659:android:0ea425bf109cf8ceeb4dd6",
+        "android_client_info": {
+          "package_name": "com.example.chefai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50649618659-4lnac6hpkent0fv5d7e6ceq8ap29qd9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chefai",
+            "certificate_hash": "c3154ef40042bea08642a9f103a0d82e92c83cf2"
+          }
+        },
+        {
+          "client_id": "50649618659-417508je71t499pd98i1vor4opeffquo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb0l_qNVSXx0WNVP5uWRdl93svRQ43xKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50649618659-417508je71t499pd98i1vor4opeffquo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

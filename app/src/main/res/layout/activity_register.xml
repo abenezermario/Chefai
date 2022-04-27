@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".Views.MainActivity">
+    tools:context=".Views.RegisterActivity">
 
     <LinearLayout
-        android:id="@+id/LoginContainer"
+        android:id="@+id/RegisterContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -25,7 +24,7 @@
             android:hint="@string/email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+                android:id="@+id/registerEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -40,7 +39,7 @@
             android:hint="@string/password">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+                android:id="@+id/registerPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
@@ -49,21 +48,11 @@
 
 
         <Button
-            android:id="@+id/loginBtn"
+            android:id="@+id/register_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Login" />
-
-        <TextView
-            android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Register"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
+            android:text="Register" />
         <!-- Circular progress indicator -->
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progress_circular"
@@ -71,8 +60,8 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:visibility="invisible" />
+
+
     </LinearLayout>
 
-
 </RelativeLayout>
-
