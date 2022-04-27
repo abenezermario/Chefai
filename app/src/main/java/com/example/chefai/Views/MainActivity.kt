@@ -25,10 +25,16 @@ class MainActivity : AppCompatActivity() {
             loginUser()
         }
 
+        resetPassword.setOnClickListener {
+            val intent = Intent(this@MainActivity, ResetPassword::class.java)
+            startActivity(intent)
+
+
+        }
+
 
         register.setOnClickListener {
             val intent = Intent(this@MainActivity, RegisterActivity::class.java)
-
             startActivity(intent)
 
 

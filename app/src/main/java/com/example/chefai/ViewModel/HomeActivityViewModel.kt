@@ -29,7 +29,7 @@ class HomeActivityViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     _createPostLiveData.value = response.body()
                     var text = response.body()!!.choices[0].text
-                    Log.d("response", text)
+//                    Log.d("response", text)
 
 
                 } else {

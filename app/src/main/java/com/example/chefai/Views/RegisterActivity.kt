@@ -53,7 +53,7 @@ class RegisterActivity : AppCompatActivity() {
                                 // Write a message to the database
                                 val database = Firebase.database
                                 val myRef = database.getReference("USERINFO")
-                                    .child("USERINFO").setValue(userInfo)
+                                    .setValue(userInfo)
                                     .addOnCompleteListener {
                                         if (it.isSuccessful) {
                                             Log.d("database", "Registered to db")
