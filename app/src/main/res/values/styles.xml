@@ -13,4 +13,7 @@
         </item>
 
     </style>
+    <style name="rounded" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+    </style>
 </resources>

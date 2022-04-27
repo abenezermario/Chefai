@@ -3,6 +3,7 @@ package com.example.chefai.Views
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
@@ -27,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_actvity)
-        DynamicColors.applyIfAvailable(this)
+
         mAuth = FirebaseAuth.getInstance()
 
 //        initViewModel()
@@ -40,21 +41,25 @@ class HomeActivity : AppCompatActivity() {
                     .show()
             }
         }
+        ingredient.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER
+                && event.action == KeyEvent.ACTION_UP
+            ) {
 
-        ingredient.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-
-                Log.d("done", v.text.toString())
-                return@OnEditorActionListener true
+                val name = ingredient.text.toString()
+                ingredient.setText("")
+                addChipToGroup(name, chipGroup)
+                return@setOnKeyListener true
             }
             false
-        })
+        }
+
         generate.setOnClickListener {
             createPost()
         }
-        logout.setOnClickListener {
-            logoutUser()
-        }
+//        logout.setOnClickListener {
+//            logoutUser()
+//        }
     }
 
 
@@ -76,20 +81,6 @@ class HomeActivity : AppCompatActivity() {
         Log.d("added", "CHIP ADDED")
         chip.setOnCloseIconClickListener {chipGroup.removeView(chip as View)}
     }
-//
-//    private fun initViewModel() {
-//        // initialize view model
-//        viewModel = ViewModelProvider(this).get(HomeActivityViewModel::class.java)
-//        viewModel.getPostLiveObserver().observe(this, Observer<PostResponseData?> {
-//            if (it == null) {
-//                Toast.makeText(this@HomeActivity, "Failed to post data", Toast.LENGTH_SHORT).show()
-//            } else {
-//                Log.d("ress", it.toString())
-//                Toast.makeText(this@HomeActivity, "Successfully posted data", Toast.LENGTH_SHORT)
-//                    .show()
-//            }
-//        })
-//    }
 
     private fun logoutUser() {
         mAuth.signOut()
