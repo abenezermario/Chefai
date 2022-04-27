@@ -13,14 +13,8 @@ import retrofit2.Response
 
 class HomeActivityViewModel : ViewModel() {
 
-    lateinit var createPostLiveData: MutableLiveData<PostResponseData?>
-
-    init {
-        createPostLiveData = MutableLiveData()
-    }
-    fun getPostLiveObserver(): MutableLiveData<PostResponseData?> {
-        return createPostLiveData
-    }
+    var _createPostLiveData = MutableLiveData<PostResponseData?>()
+    val createPostLiveData get() = _createPostLiveData
 
     fun createPostData(postdata: PostData) {
         val retroService = RetrofitApiFactory.retroInstance().create(ChefApi::class.java)
@@ -33,13 +27,13 @@ class HomeActivityViewModel : ViewModel() {
                 response: Response<PostResponseData>
             ) {
                 if (response.isSuccessful) {
-                    createPostLiveData.postValue(response.body())
+                    _createPostLiveData.value = response.body()
                     var text = response.body()!!.choices[0].text
                     Log.d("response", text)
 
 
                 } else {
-                    createPostLiveData.postValue(null)
+                    _createPostLiveData.value = null
                     Log.d("failed", response.errorBody().toString())
                 }
 
@@ -47,7 +41,7 @@ class HomeActivityViewModel : ViewModel() {
 
             override fun onFailure(call: Call<PostResponseData>, t: Throwable) {
                 Log.d("failed", t.message.toString())
-                createPostLiveData.postValue(null)
+                _createPostLiveData.value = null
             }
 
         })

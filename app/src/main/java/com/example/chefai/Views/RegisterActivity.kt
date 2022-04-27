@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.chefai.R
 import com.example.chefai.dto.UserData
+import com.google.android.material.color.DynamicColors
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.ktx.database
@@ -20,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
+        DynamicColors.applyIfAvailable(this)
 
         mAuth = FirebaseAuth.getInstance()
 

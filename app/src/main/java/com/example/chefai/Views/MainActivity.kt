@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chefai.R
+import com.google.android.material.color.DynamicColors
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        DynamicColors.applyIfAvailable(this)
         mAuth = FirebaseAuth.getInstance()
 
         loginBtn.setOnClickListener {
