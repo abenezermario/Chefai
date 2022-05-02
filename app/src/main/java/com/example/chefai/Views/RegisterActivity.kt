@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.example.chefai.R
 import com.example.chefai.dto.UserData
 import com.google.android.material.color.DynamicColors
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register.*
@@ -24,7 +27,6 @@ class RegisterActivity : AppCompatActivity() {
         DynamicColors.applyIfAvailable(this)
 
         mAuth = FirebaseAuth.getInstance()
-
         register_btn.setOnClickListener {
             when {
                 TextUtils.isEmpty(registerEmail.text.toString().trim { it <= ' ' }) -> {
@@ -46,24 +48,34 @@ class RegisterActivity : AppCompatActivity() {
 
                                 Log.d("userInfo", mAuth.currentUser!!.uid)
                                 val firebaseUser: FirebaseUser = it.result.user!!
+                                Log.d("firebaseUser", it.result.user!!.toString())
+                                // Write a message to the database
+                                val database = FirebaseDatabase.getInstance()
+                                val myRef = database.getReference("Users")
 
-                                val userInfo = UserData(email, password)
-                                // writing to firebase database
 
                                 // Write a message to the database
-                                val database = Firebase.database
-                                val myRef = database.getReference("USERINFO")
-                                    .setValue(userInfo)
+                                val user = UserData(email, password)
+
+                                myRef.push().setValue(user)
                                     .addOnCompleteListener {
                                         if (it.isSuccessful) {
-                                            Log.d("database", "Registered to db")
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                "Registered Successfully",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
                                         } else {
-                                            Log.d("failedReg", it.exception?.message.toString())
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                it.exception?.message.toString(),
+                                                Toast.LENGTH_SHORT
+                                            ).show()
                                         }
                                     }
 
 
-                                progress_circular.visibility = android.view.View.VISIBLE
+                                progress_circular.visibility = View.VISIBLE
                                 var intent = Intent(this@RegisterActivity, HomeActivity::class.java)
                                 startActivity(intent)
                                 finish()

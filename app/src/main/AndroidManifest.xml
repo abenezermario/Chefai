@@ -3,7 +3,6 @@
     package="com.example.chefai">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +11,8 @@
         android:supportsRtl="true"
         android:name=".Chefai"
         android:theme="@style/Theme.Chefai">
+
+
         <activity
             android:name=".Views.ResetPassword"
             android:exported="false" />

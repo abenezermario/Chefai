@@ -54,30 +54,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-
-            <TextView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/resetPassword"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="10dp"
-                android:text="Forgot password?"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:layout_marginEnd="8dp"
+                android:text="Forgot Password?" />
 
-            <TextView
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/register"
+                style="?attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:text="Create Account"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:text="Register" />
+
         </LinearLayout>
 
         <!-- Circular progress indicator -->

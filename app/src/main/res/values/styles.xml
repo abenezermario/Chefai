@@ -16,4 +16,26 @@
     <style name="rounded" parent="ShapeAppearance.Material3.MediumComponent">
         <item name="cornerFamily">rounded</item>
     </style>
+<!--    cardView-->
+    <style name="Theme.App" parent="Theme.Material3.Light.NoActionBar">
+        ...
+        <item name="colorSecondary">@color/shrine_pink_100</item>
+        <item name="colorSurface">@color/shrine_pink_100</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+    <style name="Theme.App.dark" parent="Theme.Material3.Dark.NoActionBar">
+        ...
+        <item name="colorSecondary">@color/shrine_dark_100</item>
+        <item name="colorSurface">@color/shrine_pink_100</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <color name="shrine_pink_100">#FFFBFE</color>
+    <color name="shrine_dark_100">#1C1B1F</color>
 </resources>
