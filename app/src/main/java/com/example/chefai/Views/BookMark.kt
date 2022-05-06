@@ -34,15 +34,22 @@ class BookMark : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_book_mark, container, false)
-        bookMarkData.layoutManager = LinearLayoutManager(activity)
-        bookMarkData.setHasFixedSize(true)
-
-        recipeDataList = arrayListOf<RecipeData>()
-        getDataFromFirebase()
-
         // Inflate the layout for this fragment
-        return view
+        return inflater.inflate(R.layout.fragment_book_mark, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recipeDataList = arrayListOf(RecipeData())
+        getDataFromFirebase()
+        bookMarkData.apply {
+            // set a LinearLayoutManager to handle Android
+            // RecyclerView behavior
+            layoutManager = LinearLayoutManager(activity)
+            // set the custom adapter to the RecyclerView
+            adapter = MyAdapter(recipeDataList)
+        }
+
     }
 
     private fun getDataFromFirebase() {
@@ -55,9 +62,11 @@ class BookMark : Fragment() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 if (snapshot.exists()) {
-                    for (data in snapshot.children) {
-                        val rec_data = data.getValue(RecipeData::class.java)
-                        recipeDataList.add(rec_data!!)
+
+                    for (recipeSnapShot in snapshot.children) {
+                        Log.d("dua", recipeSnapShot.toString())
+                        val recipeData = recipeSnapShot.getValue(RecipeData::class.java)
+                        recipeDataList.add(recipeData!!)
                     }
 
                     bookMarkData.adapter = MyAdapter(recipeDataList)

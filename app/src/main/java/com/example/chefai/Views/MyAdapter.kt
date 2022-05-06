@@ -1,5 +1,6 @@
 package com.example.chefai.Views
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,21 +13,22 @@ class MyAdapter(private val recipeData: ArrayList<RecipeData>) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false)
-        return MyViewHolder(itemView)
+        val v = LayoutInflater.from(parent.context)
+            .inflate(R.layout.card_view, parent, false)
+        return MyViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = recipeData[position]
-
-//        holder.responseTitle.text = currentItem.recipeTitle
-//        holder.responseBody.text = currentItem.recipeData
+        Log.d("curr", currentItem.toString())
+        holder.responseTitle.text = currentItem!!.recipeTitle
+        holder.responseBody.text = currentItem!!.recipeData
 
 
     }
 
     override fun getItemCount(): Int {
+        Log.d("size", recipeData.size.toString())
         return recipeData.size
     }
 
