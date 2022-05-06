@@ -21,13 +21,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/collapsingToolbarLayoutLargeSize">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/app_nav_img" />
-
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 

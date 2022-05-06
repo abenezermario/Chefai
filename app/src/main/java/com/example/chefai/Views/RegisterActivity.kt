@@ -75,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                                     }
 
 
-                                progress_circular.visibility = View.VISIBLE
+//                                progress_circular.visibility = View.VISIBLE
                                 var intent = Intent(this@RegisterActivity, HomeActivity::class.java)
                                 startActivity(intent)
                                 finish()

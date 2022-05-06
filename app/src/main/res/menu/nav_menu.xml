@@ -2,6 +2,9 @@
     <item android:id="@+id/profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/profile" />
+    <item android:id="@+id/saved"
+        android:icon="@drawable/ic_baseline_bookmarks_24"
+        android:title="@string/Saved" />
     <item android:id="@+id/settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/Settings" />

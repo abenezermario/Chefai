@@ -20,30 +20,13 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                style="?attr/collapsingToolbarLayoutLargeStyle"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/collapsingToolbarLayoutLargeSize">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/kitchen_illustration" />
-
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/topAppBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@android:color/transparent"
-                    app:navigationIcon="@drawable/ic_baseline_menu_24"
-                    app:title="@string/app_name"
-                    app:titleTextColor="@color/white" />
-
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/top_app_bar"
+                app:navigationIcon="@drawable/ic_baseline_menu_24"
+                app:title="@string/app_name" />
         </com.google.android.material.appbar.AppBarLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
@@ -53,14 +36,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:gravity="center"
+        android:gravity="bottom"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What's cookin?"
+            android:textSize="28dp"
+            android:textStyle="bold" />
 
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <!--        ingredient name-->
         <com.google.android.material.textfield.TextInputLayout
@@ -70,27 +55,34 @@
             android:padding="10dp"
             app:shapeAppearance="@style/rounded">
 
+
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/recipeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
         <!--        ingredients-->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ingredients"
-            android:maxLines="1"
             android:lines="1"
-            android:singleLine="true"
+            android:maxLines="1"
             android:padding="10dp"
+            android:singleLine="true"
             app:shapeAppearance="@style/rounded">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ingredient"
-                android:inputType="text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
@@ -138,8 +130,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu">
 
     </com.google.android.material.navigation.NavigationView>

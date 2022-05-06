@@ -1,7 +1,7 @@
 <resources>
     <!-- strings.xml -->
-    <string name="headline">Chefai</string>
-    <string name="app_name">Chefai</string>
+    <string name="headline">ChefAI</string>
+    <string name="app_name">ChefAI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="ai">OpenAI</string>
     <string name="email">Email</string>
@@ -13,4 +13,5 @@
     <string name="open">Open</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="instruction">Instruction</string>
+    <string name="Saved">Saved</string>
 </resources>

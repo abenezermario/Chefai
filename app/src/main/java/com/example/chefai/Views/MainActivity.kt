@@ -28,16 +28,12 @@ class MainActivity : AppCompatActivity() {
         resetPassword.setOnClickListener {
             val intent = Intent(this@MainActivity, ResetPassword::class.java)
             startActivity(intent)
-
-
         }
 
 
         register.setOnClickListener {
             val intent = Intent(this@MainActivity, RegisterActivity::class.java)
             startActivity(intent)
-
-
         }
     }
 
@@ -54,12 +50,10 @@ class MainActivity : AppCompatActivity() {
             else -> {
                 val email = email.text.toString().trim { it <= ' ' }
                 val password = password.text.toString().trim { it <= ' ' }
-
-
                 mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            progress_circular.visibility = android.view.View.VISIBLE
+//                            progress_circular.visibility = android.view.View.VISIBLE
                             Toast.makeText(
                                 this@MainActivity,
                                 "Login sucess",
