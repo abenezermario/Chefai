@@ -31,98 +31,106 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <LinearLayout
-        android:id="@+id/RegisterContainer"
+    <FrameLayout
+        android:id="@+id/mainContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:gravity="bottom"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:foregroundGravity="center"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="What's cookin?"
-            android:textSize="28dp"
-            android:textStyle="bold" />
+        >
 
-
-        <!--        ingredient name-->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name of recipe"
-            android:padding="10dp"
-            app:shapeAppearance="@style/rounded">
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What's cookin?"
+                android:textSize="28dp"
+                android:textStyle="bold" />
 
 
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/recipeName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <!--        ingredients-->
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingredients"
-            android:lines="1"
-            android:maxLines="1"
-            android:padding="10dp"
-            android:singleLine="true"
-            app:shapeAppearance="@style/rounded">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ingredient"
+            <!--        ingredient name-->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center">
+                android:hint="Name of recipe"
+                android:padding="10dp"
+                app:shapeAppearance="@style/rounded">
 
 
-            <Button
-                android:id="@+id/generate"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/recipeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--        ingredients-->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ingredients"
+                android:lines="1"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:singleLine="true"
+                app:shapeAppearance="@style/rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ingredient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:width="200dp"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:padding="10dp"
-                android:text="Make" />
+                android:gravity="center">
 
-            <com.google.android.material.progressindicator.CircularProgressIndicator
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/generate"
-                android:layout_alignLeft="@+id/generate"
-                android:layout_alignTop="@+id/generate"
-                android:layout_gravity="center"
-                android:layout_marginStart="7dp"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="7dp"
-                android:indeterminate="true"
-                android:visibility="invisible"
-                app:indicatorSize="25dp"
-                app:trackColor="?attr/colorOnPrimary" />
 
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/generate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:width="200dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:padding="10dp"
+                    android:text="Make" />
 
-    </LinearLayout>
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/generate"
+                    android:layout_alignLeft="@+id/generate"
+                    android:layout_alignTop="@+id/generate"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="7dp"
+                    android:indeterminate="true"
+                    android:visibility="invisible"
+                    app:indicatorSize="25dp"
+                    app:trackColor="?attr/colorOnPrimary" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </FrameLayout>
 
 
     <com.google.android.material.navigation.NavigationView

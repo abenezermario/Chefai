@@ -7,10 +7,12 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.MenuItem
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.chefai.PostData
 import com.example.chefai.R
@@ -28,13 +30,13 @@ class HomeActivity : AppCompatActivity() {
     private val viewModel: HomeActivityViewModel by viewModels()
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainBinding
+    lateinit var fragmentContainer: FrameLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-
         setContentView(R.layout.activity_home_actvity)
-
+        bindViews()
         val isLargeLayout = resources.getBoolean(R.bool.large_layout)
         mAuth = FirebaseAuth.getInstance()
         var currentUser = mAuth.currentUser?.email.toString()
@@ -53,6 +55,9 @@ class HomeActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.profile -> Toast.makeText(applicationContext, "profile", Toast.LENGTH_SHORT)
                     .show()
+                R.id.saved -> {
+                    openBookMark()
+                }
                 R.id.settings -> Toast.makeText(applicationContext, "Settings", Toast.LENGTH_SHORT)
                     .show()
                 R.id.logout -> logoutUser()
@@ -120,9 +125,30 @@ class HomeActivity : AppCompatActivity() {
         super.onStart()
         Log.d("current", mAuth.currentUser?.email.toString())
         val currentUser: FirebaseUser? = mAuth.currentUser
-        if(currentUser == null){
+        if (currentUser == null) {
             mAuth.signOut()
         }
+    }
+
+    private fun bindViews() {
+        fragmentContainer = findViewById(R.id.mainContainer)
+        listOf("arst").first()
+    }
+
+    private fun openBookMark() {
+        val fragment = BookMark.newInstance()
+        openFragment(fragment)
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager
+            .beginTransaction()
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .add(android.R.id.content, fragment)
+            .addToBackStack(null);
+
+
+        transaction.commit()
     }
 
     private fun openDialog(text: String) {

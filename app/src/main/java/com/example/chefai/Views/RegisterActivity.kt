@@ -75,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                                     }
 
 
-//                                progress_circular.visibility = View.VISIBLE
+//                              progress_circular.visibility = View.VISIBLE
                                 var intent = Intent(this@RegisterActivity, HomeActivity::class.java)
                                 startActivity(intent)
                                 finish()
@@ -96,19 +96,12 @@ class RegisterActivity : AppCompatActivity() {
                             }
                         }
                 }
-
-
             }
-
-
         }
     }
 
     private fun formatLogin(email: Editable?, password: Editable?) {
-
         TextUtils.isEmpty(email.toString().trim(' '))
         TextUtils.isEmpty(password.toString().trim(' '))
-
-
     }
 }
