@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chefai.R
 import com.example.chefai.dto.RecipeData
@@ -32,7 +33,7 @@ class MyAdapter(private val recipeData: ArrayList<RecipeData>) :
         return recipeData.size
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(@NonNull itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val responseTitle: TextView = itemView.findViewById(R.id.response_title)
         val responseBody: TextView = itemView.findViewById(R.id.response_body)
